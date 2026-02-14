@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Topic Flow</title>
+
+<script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+
+<style>
+
+/* ===== PAGE BACKGROUND ===== */
+body{
+font-family: Arial, sans-serif;
+background:#e6edf7;
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* ===== MAIN CARD ===== */
+.container{
+background: #a7bed0;
+padding:40px;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+width:800px;
+}
+
+/* ===== TITLE ===== */
+#title{
+font-size:28px;
+color:#444;
+margin-bottom:25px;
+}
+
+/* ===== LAYOUT ===== */
+.layout{
+
+display:flex;
+gap:40px;
+align-items:flex-start;
+}
+
+/* ===== FLOWCHART BOX ===== */
+#network{
+width:400px;
+height:350px;
+border:1px solid #dddddd;
+border-radius:6px;
+background:#fafafa;
+}
+
+/* ===== RIGHT PANEL ===== */
+.panel{
+display:flex;
+flex-direction:column;
+gap:12px;
+width:300px;
+}
+
+/* ===== BUTTONS ===== */
+button{
+padding:10px;
+border-radius:5px;
+border:1px solid #cfd3d8;
+background:#f0f2f5;
+cursor:pointer;
+font-size:14px;
+color:#2f5ea8;
+transition:0.3s;
+}
+
+button:hover{
+background:#e0e6f0;
+}
+
+/* ===== OUTPUT BOX ===== */
+#output{
+margin-top:10px;
+border:1px solid #ddd;
+border-radius:5px;
+padding:15px;
+height:160px;
+background:white;
+overflow:auto;
+font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2 id="title">Topic Flow</h2>
+
+<div class="layout">
+
+<div id="network"></div>
+
+<div class="panel">
+<button onclick="showNotes()">Notes</button>
+<button onclick="showDescription()">Description</button>
+<button onclick="showExplanation()">Explanation</button>
+
+<div id="output">Click a topic node</div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* ===== GET SEARCHED TOPIC ===== */
+const params = new URLSearchParams(window.location.search);
+let topic = params.get("topic") || "Knowledge";
+document.getElementById("title").innerText = topic + " Flow";
+
+/* ===== FLOWCHART ===== */
+let selectedNode = "";
+
+const nodes = new vis.DataSet([
+{id:1,label:topic},
+{id:2,label:"Concept"},
+{id:3,label:"Types"},
+{id:4,label:"Examples"},
+{id:5,label:"Applications"}
+]);
+
+const edges = new vis.DataSet([
+{from:1,to:2},
+{from:1,to:3},
+{from:2,to:4},
+{from:3,to:5}
+]);
+
+const network = new vis.Network(
+document.getElementById("network"),
+{nodes,edges},
+{nodes:{shape:"dot",size:25},edges:{smooth:true}}
+);
+
+/* ===== NODE CLICK ===== */
+network.on("click",function(params){
+if(params.nodes.length>0){
+selectedNode = nodes.get(params.nodes[0]).label;
+document.getElementById("output").innerText =
+selectedNode + " selected. Choose Notes / Description / Explanation.";
+}
+});
+
+/* ===== BUTTON ACTIONS ===== */
+function showNotes(){
+if(!selectedNode){alert("Select a node first");return;}
+document.getElementById("output").innerText =
+"Notes for "+selectedNode+"\n\n• Key points\n• Important ideas";
+}
+
+function showDescription(){
+if(!selectedNode){alert("Select a node first");return;}
+document.getElementById("output").innerText =
+"Description of "+selectedNode+"\n\nBasic definition and concept.";
+}
+
+function showExplanation(){
+if(!selectedNode){alert("Select a node first");return;}
+document.getElementById("output").innerText =
+"Full explanation of "+selectedNode+"\n\nDetailed explanation.";
+}
+
+</script>
+
+</body>
+</html>

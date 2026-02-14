@@ -1,0 +1,236 @@
+/* ================= GENERAL ================= */
+
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+}
+
+/* ================= LOGIN PAGE ================= */
+
+.center {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+background: #e6edf7;
+}
+
+.card {
+background: #bad4e9;
+padding: 40px;
+width: 350px;
+border-radius: 10px;
+box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+text-align: center;
+}
+
+.card input {
+width: 100%;
+padding: 12px;
+margin: 10px 0;
+border: 1px solid #ddd;
+border-radius: 5px;
+}
+
+.card button {
+width: 100%;
+padding: 12px;
+background: linear-gradient(90deg,#4e73df,#3a8dff);
+color: white;
+border: none;
+border-radius: 5px;
+font-size: 16px;
+cursor: pointer;
+}
+
+.google {
+background: white;
+border: 1px solid #ddd;
+color: #555;
+margin-top: 10px;
+}
+
+/* ================= DASHBOARD ================= */
+
+.dashboard-bg {
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+background: radial-gradient(circle at center,#0b1f4b,#020617);
+overflow: hidden;
+}
+
+.app-title {
+position: absolute;
+top: 40px;
+left: 50%;
+transform: translateX(-50%);
+color: white;
+font-size: 36px;
+font-weight: bold;
+letter-spacing: 2px;
+text-shadow: 0 0 15px rgba(0,150,255,0.8);
+}
+
+.top-icons {
+position: absolute;
+top: 30px;
+right: 40px;
+display: flex;
+gap: 20px;
+}
+
+.top-icon {
+font-size: 28px;
+cursor: pointer;
+color: white;
+transition: 0.3s;
+}
+
+.top-icon:hover {
+transform: scale(1.2);
+text-shadow: 0 0 15px #3a8dff;
+}
+
+.dashboard-container {
+position: relative;
+width: 700px;
+height: 400px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+/* ================= SEARCH BAR ================= */
+
+.search-bar {
+display: flex;
+align-items: center;
+background: rgba(255,255,255,0.08);
+border-radius: 50px;
+padding: 15px 20px;
+box-shadow: 0 0 40px rgba(0,150,255,0.7);
+backdrop-filter: blur(15px);
+z-index: 2;
+}
+
+.search-bar input {
+border: none;
+outline: none;
+padding: 12px;
+background: transparent;
+color: white;
+font-size: 18px;
+width: 300px;
+}
+
+.search-bar button {
+padding: 12px 25px;
+border: none;
+border-radius: 30px;
+background: linear-gradient(90deg,#4e73df,#3a8dff);
+color: white;
+cursor: pointer;
+font-size: 16px;
+}
+
+.icon {
+color: white;
+font-size: 22px;
+margin-right: 10px;
+}
+
+/* ================= ICON CIRCLES ================= */
+
+.circle {
+position: absolute;
+width: 70px;
+height: 70px;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 30px;
+color: white;
+box-shadow: 0 0 20px rgba(255,255,255,0.5);
+}
+
+.brain { top: 10px; left: 120px; background: #3b82f6; }
+.folder { top: 10px; right: 120px; background: #f59e0b; }
+.bulb { right: 30px; top: 50%; background: #f97316; }
+.robot { bottom: 10px; left: 50%; transform: translateX(-50%); background: #8b5cf6; }
+.laptop { left: 30px; top: 50%; background: #10b981; }
+
+/* ================= TOPIC PAGE ================= */
+
+.topic-bg {
+background: #879ebf;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.topic-container {
+background: #476e8f;
+padding: 40px;
+border-radius: 10px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+width: 750px;
+}
+
+#topicTitle {
+font-size: 28px;
+margin-bottom: 20px;
+color: #444;
+}
+
+.flow-layout {
+background-color: greenyellow;
+display: flex;
+gap: 40px;
+}
+
+#network {
+width: 400px;
+height: 350px;
+background: #fafafa;
+border: 1px solid #ddd;
+border-radius: 6px;
+}
+
+/* Right Panel */
+
+.info-panel {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+
+.info-panel button {
+padding: 10px;
+border-radius: 5px;
+border: 1px solid #cfd3d8;
+background: #f0f2f5;
+cursor: pointer;
+font-size: 14px;
+color: #2f5ea8;
+transition: 0.3s;
+}
+
+.info-panel button:hover {
+background: #152847;
+}
+
+#outputBox {
+margin-top: 15px;
+padding: 15px;
+border: 1px solid #dcdcdc;
+border-radius: 5px;
+background: white;
+height: 140px;
+overflow: auto;
+font-size: 14px;
+color: #333;
+}

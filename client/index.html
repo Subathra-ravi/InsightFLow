@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login</title>
-<link rel="stylesheet" href="style.css">
+    <title>InsightFlow - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body class="center">
+<body>
 
-<div class="card">
-<h2>InsightFlow</h2>
+<div class="login-container">
+    <div class="card">
+        <h1>InsightFlow</h1>
+        <p class="subtitle">Intelligent Knowledge Mapping System</p>
 
-<input type="text" placeholder="username" id="username">
-<input type="password" placeholder="password" id="password">
+        <input type="text" placeholder="Username" id="username">
+        <input type="password" placeholder="Password" id="password">
 
-<button onclick="login()">Sign in</button>
+        <button class="primary-btn" onclick="login()">Sign In</button>
 
-<hr>
+        <div class="divider">
+            <span>OR</span>
+        </div>
 
-<button class="google">Sign with google</button>
+        <button class="google-btn">Sign in with Google</button>
+    </div>
 </div>
 
 <script src="script.js"></script>

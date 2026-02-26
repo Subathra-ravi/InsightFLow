@@ -7,47 +7,97 @@ margin: 0;
 
 /* ================= LOGIN PAGE ================= */
 
-.center {
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-background: #e6edf7;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .card {
-background: #bad4e9;
-padding: 40px;
-width: 350px;
-border-radius: 10px;
-box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-text-align: center;
+    background:#bad4e9 ;
+    padding: 40px;
+    border-radius: 12px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-.card input {
-width: 100%;
-padding: 12px;
-margin: 10px 0;
-border: 1px solid #ddd;
-border-radius: 5px;
+h1 {
+    margin-bottom: 5px;
+    color: #333;
 }
 
-.card button {
-width: 100%;
-padding: 12px;
-background: linear-gradient(90deg,#4e73df,#3a8dff);
-color: white;
-border: none;
-border-radius: 5px;
-font-size: 16px;
-cursor: pointer;
+.subtitle {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 25px;
 }
 
-.google {
-background: white;
-border: 1px solid #ddd;
-color: #555;
-margin-top: 10px;
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4e73df;
+}
+
+.primary-btn {
+    width: 100%;
+    padding: 12px;
+    background: #4e73df;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    background: #2e59d9;
+}
+
+.divider {
+    margin: 20px 0;
+    position: relative;
+}
+
+.divider span {
+    
+    padding: 0 10px;
+    color:black;
+    font-size: 12px;
+}
+
+.google-btn {
+    width: 100%;
+    padding: 12px;
+    background: #db4437;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.google-btn:hover {
+    background: #c1351d;
 }
 
 /* ================= DASHBOARD ================= */
@@ -162,75 +212,31 @@ box-shadow: 0 0 20px rgba(255,255,255,0.5);
 .robot { bottom: 10px; left: 50%; transform: translateX(-50%); background: #8b5cf6; }
 .laptop { left: 30px; top: 50%; background: #10b981; }
 
-/* ================= TOPIC PAGE ================= */
+/* ================= ORBIT ROTATION ================= */
 
-.topic-bg {
-background: #879ebf;
-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: center;
+/* Rotate all circles around center */
+.dashboard-container {
+    animation: rotateOrbit 25s linear infinite;
 }
 
-.topic-container {
-background: #476e8f;
-padding: 40px;
-border-radius: 10px;
-box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-width: 750px;
+/* Keep search bar fixed (prevent rotation) */
+.search-bar {
+    animation: rotateOrbitReverse 25s linear infinite;
 }
 
-#topicTitle {
-font-size: 28px;
-margin-bottom: 20px;
-color: #444;
+/* Optional: smooth floating effect */
+.circle {
+    transition: transform 0.3s ease;
 }
 
-.flow-layout {
-background-color: greenyellow;
-display: flex;
-gap: 40px;
+/* Rotation keyframes */
+@keyframes rotateOrbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-#network {
-width: 400px;
-height: 350px;
-background: #fafafa;
-border: 1px solid #ddd;
-border-radius: 6px;
-}
-
-/* Right Panel */
-
-.info-panel {
-display: flex;
-flex-direction: column;
-gap: 12px;
-}
-
-.info-panel button {
-padding: 10px;
-border-radius: 5px;
-border: 1px solid #cfd3d8;
-background: #f0f2f5;
-cursor: pointer;
-font-size: 14px;
-color: #2f5ea8;
-transition: 0.3s;
-}
-
-.info-panel button:hover {
-background: #152847;
-}
-
-#outputBox {
-margin-top: 15px;
-padding: 15px;
-border: 1px solid #dcdcdc;
-border-radius: 5px;
-background: white;
-height: 140px;
-overflow: auto;
-font-size: 14px;
-color: #333;
+/* Reverse rotation for search bar so it stays straight */
+@keyframes rotateOrbitReverse {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
 }
